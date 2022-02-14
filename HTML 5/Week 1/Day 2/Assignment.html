@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link href="Bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="Bootstrap-4.3.1-dist/cdnjs/jquery.min.js"></script>
+  <script src="Bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+
+
+
+
+  <script>
+    function submit() {
+      var st = document.getElementById("stime").value;
+      var et = document.getElementById("etime").value;
+      var rt = document.getElementById("rtime").value;
+
+      var sdt = new Date("01 02 2022 " + st);
+      var edt = new Date("01 02 2022 " + et);
+
+      var dur = ((edt - sdt) / 1000 / 60);
+      dur = dur - rt;
+      var h = Math.floor(dur / 60);
+      var m = (dur % 60);
+      var time = h + ":" + m;
+      document.getElementById("ttime").value = h + ":" + m;
+
+      var ramount = Number(document.getElementById("rrate").value);
+      var rtperh = (h + ":" + m * ramount / 60 / 60);
+      document.getElementById("tamount").value = rtperh;
+
+    }
+    counter = [];
+    index = [-1];
+
+    function Add() {
+      var st = document.getElementById("stime").value;
+      var et = document.getElementById("etime").value;
+      var rt = document.getElementById("rtime").value;
+      var tt = document.getElementById("ttime").value;
+      var rph = document.getElementById("rrate").value;
+      var ta = document.getElementById("tamount").value;
+
+      st = {
+        "St": st,
+        "Et": et,
+        "Rt": rt,
+        "Tt": tt,
+        "Rph": rph,
+        "Ta": ta
+      };
+      counter.push(st);
+      display();
+
+    }
+
+    function display() {
+      var st = "";
+      for (var i = 0; i < counter.length; i++) {
+        st += "<tr><td>" + counter[i].St + "</td><td>" + counter[i].Et + "</td><td>" + counter[i].Rt + "</td><td>" +
+          counter[i].Tt + "</td><td>" + counter[i].Rph + "</td><td>" + counter[i].Ta + "</td><td>" +
+          "<input type='button' value='X' onclick='remove()'>" + "</tr></td>";
+
+      }
+      document.getElementById("tbldata").innerHTML = st;
+
+    }
+
+    function remove(p) {
+      alert("do you want to delete..");
+      counter.splice(p, 1);
+      display();
+
+
+    }
+  </script>
+</head>
+
+<body style="background-color:azure">
+  <center>
+    <h1 style="border:groove;background-color:lightgoldenrodyellow;color:red">COUNTER</h1><br /><br />
+  </center>
+  <center>
+    <b><label style="color:purple"> start time: </label></b> <input type="time" id="stime" onchange="submit()"
+      style="background-color:lightcyan;margin-left:50px;width:190px" /> <br /><br />
+    <b><label style="color:purple"> End time: </label></b> <input type="time" id="etime" onchange="submit()"
+      style="background-color:lightcyan;margin-left:56px;width:190px" /> <br /><br />
+    <b><label style="color:purple"> Rest time: </label></b> <input type="text" id="rtime" onchange="submit()"
+      style="background-color:lightcyan;margin-left:52px" /> <br /><br />
+    <b><label style="color:purple"> Total time: </label></b> <input type="text" id="ttime" onchange="submit()"
+      style="background-color:lightcyan;margin-left:49px" disabled /> <br /><br />
+    <b><label style="color:purple"> Rate per hour: </label></b> <input type="text" id="rrate" onchange="submit()"
+      style="background-color:lightcyan;margin-left:24px" /> <br /><br />
+    <b><label style="color:purple"> Total amount: </label></b> <input type="text" id="tamount"
+      style="background-color:lightcyan;margin-left:26px" disabled /> <br /><br />
+
+    <center><input type="button" class="btn btn-primary" value="Add Data" onclick="Add()" /> <br /><br /></center>
+  </center>
+  <center>
+    <table border="1" cellpadding="5" cellspacing="1">
+      <thead>
+        <tr>
+
+          <th style="background-color:orange;color:red">StartTime</th>
+          <th style="background-color:orange;color:red">EndTime</th>
+          <th style="background-color:orange;color:red">RestTime</th>
+          <th style="background-color:orange;color:red">TotalTime</th>
+          <th style="background-color:orange;color:red">RatePerHour</th>
+          <th style="background-color:orange;color:red">TotalAmount</th>
+
+        </tr>
+      </thead>
+      <tbody id="tbldata"></tbody>
+    </table>
+  </center>
+
+</body>
+
+</html>
