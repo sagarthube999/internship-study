@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form </title>
+</head>
+
+<body>
+  <form>
+    First Name:<input type="text" name="abc" placeholder="Sagar" autofocus><br>
+
+    Gender:-<br> Male :<input type="radio" name="gender" value="male" checked><br>
+    Female :<input type="radio" name="gender" value="female"> <br>
+    <input type="submit" value="Submit"><br>
+
+    <textarea name="message" rows="10" cols="30">
+      Text message
+    </textarea><br>
+
+    <button type="button">Click Me!</button>
+    <br><br>
+    <fieldset>
+      <legend>Personal Information</legend>
+      First Name:<br>
+      <input type="text" name="first name" value="mickey"><br><br>
+      Last Name:<br>
+      <input type="text" name="last name" value="mouse"><br><br>
+      <input type="submit" value="Submit">
+    </fieldset><br><br>
+
+    <h1>DropDown List</h1>
+    <select name="Cars">
+      <option value="">Select Option</option>
+      <option value="Car">Cars</option>
+      <option value="BMW">BMW</option>
+      <option value="">Audi</option>
+      <option value="">Fiat</option>
+    </select>
+
+    <h1>DataList</h1>
+    <input list="browsers" id="#browsers">
+    <datalist id="browsers">
+      <option value="Java"></option>
+      <option value="IE"></option>
+      <option value="Javascript"></option>
+    </datalist>
+
+    <h1>Password</h1>
+    Password:
+    <input type="password" name="psw"><br><br>
+
+    <h1>Checkbox</h1>
+    <input type="checkbox" name="vehicle 1" value="bike" checked>Bike<br>
+    <input type="checkbox" name="vehicle 2" value="car">Car<br><br>
+
+    <h1>Quantity</h1>
+    <input type="number" name="quantity" min="1" max="5" size="4" <br>
+
+    <h1>Quantity</h1>
+    <input type="number" name="quantity" min="10" max="100" size="5" step="10" value="10"><br><br>
+
+    <h1>Date</h1>
+    <input type="date" name="bday"> <br>
+
+    <h1>Select Your favorite Color</h1>
+    <input type="color" name="fcolor"><br>
+
+    <h1>Range</h1>
+    0<input type="range" name="points" min="0" max="10">10<br>
+
+    <h1>Email</h1>
+    <input type="email" name=""><br>
+
+    <h1>Add url homepage</h1>
+    <input type="url" name="homepage"><br>
+
+    <h1>ReadOnly</h1>
+    First Name: <input type="text" name="first name" value="Sagar" size="10" readonly><br>
+
+    <h1>Disabled</h1>
+    First Name:<input type="text" name="first name" value="Sagar" size="10" disabled><br><br>
+
+    <h1>Maxlength of word or digit</h1>
+    First Name:<input type="text" name="first name" value="Sagar" maxlength="15"><br>
+
+    <h1>Required</h1>
+    First Name:<input type="text" name="first name" value="Sagar" required><br>
+
+    <h1>With Value</h1>
+    <input type="submit" value="Done"><br>
+
+  </form>
+</body>
+
+</html>
